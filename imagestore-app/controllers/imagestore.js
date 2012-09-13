@@ -107,7 +107,7 @@ exports.count = function(req, res,next) {
 /**
  * Removes all images from the database.
  */
-xports.clear = function(req, res,next) {    
+exports.clear = function(req, res,next) {    
     console.log(" REMOVE IMAGES  ");
     ImageModel.remove(function (err) {
         if (err) throw err;

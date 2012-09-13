@@ -20,5 +20,9 @@ exports.mapRoute = function(app, prefix) {
    
    // Uploads a single file
    app.post(prefix + '/upload', prefixObj.upload);
+   
+   app.get('/clear', prefixObj.clear);
+   
+   app.get('/count', prefixObj.count);
 
 };
