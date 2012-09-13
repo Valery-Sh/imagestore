@@ -49,33 +49,6 @@ mongoose.connect('mongodb://localhost/uploadedImages');
 // Maps routes/controllers
 // 
 appconfig.mapRoute(app, 'imagestore'); 
-/**
- * The response contains the infomation of image count in
- * the database
- */
-app.get('/c', function(req, res,next) {
-    console.log(" COUNT IMAGES  ");
-
-    console.log('mongo is open');
-
-    ImageModel.count({},function(err,count) {
-        console.log('before count old docs');
-        if (err) throw err;
-        console.log('count old docs');
-        res.send("COUNT = " + count);
-        
-    });
-});
-/**
- * Removes all images from the database.
- */
-app.get('/r', function(req, res,next) {
-    console.log(" REMOVE IMAGES  ");
-    ImageModel.remove(function (err) {
-        if (err) throw err;
-        res.send("CLEAR DONE");
-    });
-});
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log("Express server listening on port " + app.get('port'));
