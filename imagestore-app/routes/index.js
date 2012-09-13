@@ -1,6 +1,5 @@
-
-/*
- * GET home page.
+/**
+ * Renders the home page. 
  */
 exports.index = function(req, res,imageDocs){
   res.render('index', { 

@@ -1,8 +1,5 @@
-
 var ImageModel = require('../models/imagestore.js'); 
 var routes = require('../routes'); 
-var uploadConfig = require('../appconfig.js').uploadConfig;
-
 /**
  * Excecutes when a browser tries to load the image 
  * specified by the img tag.
@@ -18,10 +15,9 @@ exports.load= function(req, res,next) {
             return next(err);
         }
         res.contentType(doc.img.contentType);
-        res.sendfile(uploadConfig.baseDir + uploadConfig.path + "/" + doc.img.fileName);
+        res.sendfile(req.uploadConfig.baseDir + req.uploadConfig.path + "/" + doc.img.fileName);
     });
 };
-
 /**
  * Updates image position.
  */
@@ -84,14 +80,13 @@ exports.upload = function(req, res,next) {
     });
 
 };
-
-
 /**
  * The response contains the infomation of image count in
  * the database
  */
-
 exports.count = function(req, res,next) {
+    console.log(" COUNT   " + req.uploadConfig.baseDir);
+    
     console.log(" COUNT IMAGES  ");
 
     console.log('mongo is open');

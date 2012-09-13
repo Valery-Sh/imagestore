@@ -1,8 +1,3 @@
-exports.uploadConfig = {
-    baseDir : __dirname,
-    path: '/upload/images'
-}
-
 exports.mapRoute = function(app, prefix) { 
     
    var prefixObj = require('./controllers/' + prefix); 
@@ -26,3 +21,11 @@ exports.mapRoute = function(app, prefix) {
    app.get('/count', prefixObj.count);
 
 };
+
+exports.middleware = function mid(baseDir,path) { 
+     var uploadConfig = {baseDir : baseDir, path :path }
+     return function mid(req, res, next) {
+        req.uploadConfig = uploadConfig; 
+        next(); 
+     }
+} 

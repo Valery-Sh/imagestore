@@ -1,3 +1,4 @@
+
 /**
  * Module dependencies.
  */
@@ -19,12 +20,16 @@ app.configure(function(){
     app.set('view engine', 'jade');
     app.use(express.favicon());
     app.use(express.logger('dev'));
+    
+    app.use(appconfig.middleware(__dirname,"/upload/images"));
     app.use(express.bodyParser({
-        uploadDir: appconfig.uploadConfig.baseDir + appconfig.uploadConfig.path,
+        uploadDir: __dirname + "/upload/images",
         keepExtensions: true
     }));    
+
     app.use(express.methodOverride());
     app.use(app.router);
+    
     app.use(require('stylus').middleware(__dirname + '/public'));  
     app.use(express.static(path.join(__dirname, 'public')));  
 });
