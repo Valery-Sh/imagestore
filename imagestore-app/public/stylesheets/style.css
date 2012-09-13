@@ -1,0 +1,57 @@
+body {
+  padding: 20px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #ccc;
+}
+a {
+  color: #0069ff;
+}
+#sandbox {
+  width: 640px;
+  height: 480px;
+  margin: 0 auto;
+  padding: 0px 0px;
+  background: #fff;
+  box-shadow: 1px 3px 3px #333;
+  border-radius: 5px;
+}
+#uploadbar {
+  width: 640px;
+  height: 40px;
+  margin: 0 auto;
+  padding: 0px 0px;
+  background: #888;
+  box-shadow: 1px 3px 3px #333;
+  border-radius: 5px;
+  padding-top: 10px;
+}
+
+#browsehint {
+  color: white;
+  margin-right: 10px;
+}
+#browsehint {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#updateForm {
+    display: none;
+}
+#status {
+    /*display: none;*/
+   padding-left: 5px; 
+}
+#statusTmp {
+    display: none;
+}
+
+#logo {
+  text-align: center;
+}
+#display {
+  margin: 20px 0 50px;
+}
+#userbar {
+  margin-bottom: 10px;
+}

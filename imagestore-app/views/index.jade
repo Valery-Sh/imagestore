@@ -1,0 +1,52 @@
+html
+    head
+        title = title
+        script
+            //-$( '.uploadedImg' ).popup( {hover: false} );    
+            function imageLoaded(id,x,y) {
+                var oleft = document.getElementById("sandbox").offsetLeft;
+                var left =  parseInt(x);
+                var otop = document.getElementById("sandbox").offsetTop;
+                var top =  parseInt(y);
+
+                document.getElementById("id_" + id).style.left = (oleft+left) + "px";
+                document.getElementById("id_" + id).style.top = (otop+top) + "px";
+
+
+            }
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(type="text/css", href="jqueryui/css/ui-lightness/jquery-ui-1.8.23.custom.css", rel="stylesheet")
+        script(type="text/javascript", src="/jquery-libs/jquery-1.8.0.min.js")
+        script(type="text/javascript", src="/jquery-libs/jquery-ui-1.8.23.custom.min.js")
+        script(type="text/javascript", src="/jquery-libs/jquery.form.js")
+        script(type="text/javascript", src="/javascripts/imagestore-ajax.js")
+
+    body
+
+        
+        span(id='statusTmp')    
+        span(id='status')    
+
+        div(id='uploadbar')
+            form(id="uploadForm"
+              enctype="multipart/form-data"
+              action="/imagestore/upload"
+              method="post")
+              span(id='browsehint')
+                | Click to upload an image
+              input(type="file", id="imageFile", name="imageFile" )
+              span(id='status')    
+
+        div(id='sandbox')
+            if imageDocs.length != 0
+                each doc in imageDocs
+                    img(id='id_#{doc.id}', src='/imagestore/load/#{doc.img.fileName}', 
+                        onload='imageLoaded("#{doc.id}","#{doc.img.pos.x}","#{doc.img.pos.y}")',
+                        class="uploadedImage",
+                        style='position:absolute; top:#{doc.img.pos.y}px; left:#{doc.img.pos.x}px;')                        
+
+
+        
+        
+
+
