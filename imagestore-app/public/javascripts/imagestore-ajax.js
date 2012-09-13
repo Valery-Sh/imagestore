@@ -78,7 +78,7 @@ function makeDraggable() {
             }
             
             $.ajax({
-                url: "/imagestore/update",
+                url: "/imagestore/updateImage",
                 data : {
                     imagePosX : x,
                     imagePosY : y,

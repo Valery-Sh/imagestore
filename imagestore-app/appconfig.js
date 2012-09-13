@@ -5,16 +5,16 @@ exports.mapRoute = function(app, prefix) {
    prefix = '/' + prefix; 
    
    // Update an image position as a result of Drag/Drop
-   app.put(prefix + '/update', prefixObj.update); 
+   app.put(prefix + '/updateImage', prefixObj.updateImage); 
    
    // Load an image by a browser request
-   app.get(prefix + '/load/*', prefixObj.load);
+   app.get(prefix + '/loadImage/*', prefixObj.loadImage);
    
    // Shows start page
    app.get('/', prefixObj.index);
    
    // Uploads a single file
-   app.post(prefix + '/upload', prefixObj.upload);
+   app.post(prefix + '/uploadImage', prefixObj.uploadImage);
    
    app.get('/clear', prefixObj.clear);
    

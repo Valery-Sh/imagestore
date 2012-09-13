@@ -2,7 +2,7 @@ html
     head
         title = title
         script
-            //-$( '.uploadedImg' ).popup( {hover: false} );    
+            
             function imageLoaded(id,x,y) {
                 var oleft = document.getElementById("sandbox").offsetLeft;
                 var left =  parseInt(x);
@@ -30,7 +30,7 @@ html
         div(id='uploadbar')
             form(id="uploadForm"
               enctype="multipart/form-data"
-              action="/imagestore/upload"
+              action="/imagestore/uploadImage"
               method="post")
               span(id='browsehint')
                 | Click to upload an image
@@ -40,7 +40,7 @@ html
         div(id='sandbox')
             if imageDocs.length != 0
                 each doc in imageDocs
-                    img(id='id_#{doc.id}', src='/imagestore/load/#{doc.img.fileName}', 
+                    img(id='id_#{doc.id}', src='/imagestore/loadImage/#{doc.img.fileName}', 
                         onload='imageLoaded("#{doc.id}","#{doc.img.pos.x}","#{doc.img.pos.y}")',
                         class="uploadedImage",
                         style='position:absolute; top:#{doc.img.pos.y}px; left:#{doc.img.pos.x}px;')                        
