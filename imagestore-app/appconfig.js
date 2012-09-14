@@ -22,9 +22,9 @@ exports.mapRoute = function(app, prefix) {
 
 };
 
-exports.middleware = function mid(baseDir,path) { 
+exports.middleware = function addUploadConfig(baseDir,path) { 
      var uploadConfig = {baseDir : baseDir, path :path }
-     return function mid(req, res, next) {
+     return function addUploadConfig(req, res, next) {
         req.uploadConfig = uploadConfig; 
         next(); 
      }
