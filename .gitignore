@@ -1,2 +1,5 @@
 /imagestore-app/node_modules/
 /imagestore-app/upload/
+/nbproject/private/
+/nbproject/
+/build.xml
