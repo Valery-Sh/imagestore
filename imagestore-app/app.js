@@ -30,7 +30,6 @@ app.configure(function(){
     app.use(express.methodOverride());
     app.use(app.router);
     
-    app.use(require('stylus').middleware(__dirname + '/public'));  
     app.use(express.static(path.join(__dirname, 'public')));  
 });
 
@@ -48,7 +47,7 @@ app.configure('production', function(){
 //
 //------------- ModgoDB ------------------------------
 //
-mongoose.connect('mongodb://localhost/uploadedImages'); 
+mongoose.connect('mongodb://localhost/imagestore'); 
 
 //
 // Maps routes/controllers
